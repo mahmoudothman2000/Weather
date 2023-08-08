@@ -1,4 +1,7 @@
+let inputCity = document.getElementById( "inputCity" );
+let findBtn = document.getElementById( "findBtn" );
 
+//Todo This Function Get Data From Api And Show In Document  .
 async function getData ( city )
 {
   let response = await fetch( `https://api.weatherapi.com/v1/forecast.json?key=fdb65338fd954962ba374133230608&q=${city}&days=3` );
@@ -12,21 +15,24 @@ async function getData ( city )
   let temperature = finalResult.current.temp_c;
   let condition = finalResult.current.condition.text;
   let icon = finalResult.current.condition.icon;
-  let countryCap = finalResult.location.country;
-  let z = finalResult.location.tz_id;
 
+
+//Todo Information for First Day  .
   let oneDay =  getDayNow( finalResult.forecast.forecastday[ 1 ].date );
   let oneMaxTemp = finalResult.forecast.forecastday[ 1 ].day.maxtemp_c;
   let oneMinTemp = finalResult.forecast.forecastday[ 1 ].day.mintemp_c;
   let oneText = finalResult.forecast.forecastday[ 1 ].day.condition.text;
   let oneIcon = finalResult.forecast.forecastday[ 1 ].day.condition.icon;
 
+  //Todo Information for Second Day  .
   let towDay =  getDayNow( finalResult.forecast.forecastday[ 2 ].date );
   let towMaxTemp = finalResult.forecast.forecastday[ 2 ].day.maxtemp_c;
   let towMinTemp = finalResult.forecast.forecastday[ 2 ].day.mintemp_c;
   let towText = finalResult.forecast.forecastday[ 2 ].day.condition.text;
   let towIcon = finalResult.forecast.forecastday[ 2 ].day.condition.icon;
 
+
+  //Todo Call to Function Display :
   displayWeather( country,
     currentDay,
     currentDayNum,
@@ -47,21 +53,21 @@ async function getData ( city )
   );
 }
 getData ( "cairo" )
-let inputCity = document.getElementById("inputCity")
-let findBtn = document.getElementById("findBtn")
 
-
+//Todo This Function Search input for Data in Website By Click the find button .
 findBtn.addEventListener( "click", function ()
 {
   getData(inputCity.value)
   console.log(inputCity.value);
 } )
 
-// inputCity.addEventListener( "change", function ()
-// {
-//   getData(inputCity.value)
-//   console.log(inputCity.value);
-// })
+//Todo This Function Search input for Data in Website during Writing .
+inputCity.addEventListener( "input", function ()
+{
+  getData(inputCity.value)
+  console.log(inputCity.value);
+  console.log("good");
+})
 
 //Todo This Function Show Data in Website .
 function displayWeather ( country,
@@ -165,4 +171,6 @@ function getMonthNow (time)
   let month = months[ d.getMonth() ];
   return month;
 }
+
+
 
