@@ -46,11 +46,11 @@ body {
   font-family: 'Work Sans', sans-serif;
 }
 
-ul {
+/* ul {
   list-style: none;
   margin: 0;
   padding: 0;
-}
+} */
 
 a {
   text-decoration: none;
@@ -68,38 +68,35 @@ a {
   /* End Variables */
 
 
+
+
+
+
+
+/* Todo Start NavBar */
 nav {
   background-color: rgba(0, 0, 0, 0.719);
 }
 .nav-item {
   display: block;
   padding: 30px 10px;
-  /* font-size: var(--bs-nav-link-font-size);
-  font-weight: var(--bs-nav-link-font-weight); */
   color: black;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
 }
 .nav-link {
   font-size: var(--bs-nav-link-font-size);
   font-weight: var(--bs-nav-link-font-weight);
   border: 2px solid transparent;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
   padding: 2px 25px !important;
   color: white;
 }
-
-
 .nav-link:hover,.active {
   border-color: #029dd9;
   color: #029dd9 !important;
 }
-
-
 .sub-title {
   font-size: 14px;
   margin-top: -10px !important;
 }
-
 .navbar-brand {
   padding-top: var(--bs-navbar-brand-padding-y);
   padding-bottom: var(--bs-navbar-brand-padding-y);
@@ -109,13 +106,17 @@ nav {
   text-decoration: none;
   display: flex;
 }
-
 .logo-text{
   margin-left: 10px;
 }
 
 
-/* todo Header */
+
+
+
+
+
+/* Todo Start Header */
 header {
   background-image: url(../image/banner.png);
   background-size: cover;
@@ -126,36 +127,30 @@ header {
   justify-content: center;
   align-items: center;
 }
-header input{
-  width: 100%;
-  padding: 10px;
-  margin-top: 80px  ;
-  /* transform: translateY(-20px);
-  -webkit-transform: translateY(-20px);
-  -moz-transform: translateY(-20px);
-  -ms-transform: translateY(-20px);
-  -o-transform: translateY(-20px); */
-}
-
 header .container{
   height: 100vh;
   top:150px;
   padding-bottom: 100px;
 }
-
 header #findBtn {
-  /* position: absolute; */
-  right: 16px;
-  top: 84px;
+  top: 50%;
+  right: 5px;
   padding: 10px 40px;
   font-size: 18px;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
 }
 
 
 
 
 
-/* todo =======section.back====== */
+
+
+/* Todo Start Section Back */
 section.back {
   height: 80vh;
   background-color: #2c2929;
@@ -178,14 +173,12 @@ section.back .one {
 section.back .one .head{
   background-color: rgb(36, 36, 36);
 }
-
 section.back .two {
   background-color: rgb(63, 63, 63);
 }
 section.back .two .head{
   background-color: rgb(46, 46, 46);
 }
-
 section.back .three {
   background-color: rgb(49, 49, 49);
 }
@@ -196,21 +189,22 @@ section.back .three .head{
   width: 100%;
   padding: 15px;
 }
-
 .minTemp {
   font-size: 14px;
 }
 
 
-/* 
-header .container .head {
 
-} */
 
+
+
+
+
+
+/* Todo Start Footer */
 footer {
   background-color: #313131;
 }
-
 input::placeholder{
   font-size: 14px;
 }
@@ -251,7 +245,6 @@ footer .social span i{
   -ms-transition: var(--main-transition);
   -o-transition: var(--main-transition);
 }
-
 footer .social span:hover i{
   color: #ffffff;
 }

@@ -1,3 +1,4 @@
+
 let inputCity = document.getElementById( "inputCity" );
 let findBtn = document.getElementById( "findBtn" );
 
@@ -24,6 +25,12 @@ async function getData ( city )
   let oneText = finalResult.forecast.forecastday[ 1 ].day.condition.text;
   let oneIcon = finalResult.forecast.forecastday[ 1 ].day.condition.icon;
 
+  let humidity = finalResult.current.humidity;
+  let wind_kph = finalResult.current.wind_kph;
+  let wind_dir = finalResult.current.wind_dir;
+
+  console.log(humidity , wind_kph , wind_dir);
+
   //Todo Information for Second Day  .
   let towDay =  getDayNow( finalResult.forecast.forecastday[ 2 ].date );
   let towMaxTemp = finalResult.forecast.forecastday[ 2 ].day.maxtemp_c;
@@ -33,7 +40,8 @@ async function getData ( city )
 
 
   //Todo Call to Function Display :
-  displayWeather( country,
+  displayWeather( 
+    country,
     currentDay,
     currentDayNum,
     currentMonth,
@@ -49,7 +57,10 @@ async function getData ( city )
     towMaxTemp,
     towMinTemp,
     towText,
-    towIcon
+    towIcon,
+    humidity,
+    wind_kph,
+    wind_dir
   );
 }
 getData ( "cairo" )
@@ -86,7 +97,10 @@ function displayWeather ( country,
   towMaxTemp,
   towMinTemp,
   towText,
-  towIcon
+  towIcon,
+  humidity,
+  wind_kph,
+  wind_dir
 )
 {
   let cartona = `
@@ -107,9 +121,9 @@ function displayWeather ( country,
       </div>
       <a href="#" >${condition}</a>
       <div class="icon my-2">
-        <span class="d-inline-block ms-2"><img src="image/icon-umberella.png" class="me-1" alt="umbrella"> 20%</span>
-        <span class="d-inline-block ms-2"><img src="image/icon-wind.png" class="me-1" alt="wind">8km/h</span>
-        <span class="d-inline-block ms-2"><img src="image/icon-compass.png" class="me-1" alt="compass">1 East</span>
+        <span class="d-inline-block ms-2"><img src="image/icon-umberella.png" class="me-1" alt="umbrella"> ${humidity}%</span>
+        <span class="d-inline-block ms-2"><img src="image/icon-wind.png" class="me-1" alt="wind">${wind_kph}km/h</span>
+        <span class="d-inline-block ms-2"><img src="image/icon-compass.png" class="me-1" alt="compass">${wind_dir}</span>
       </div>
     </div>
   </div>
